@@ -1,6 +1,12 @@
-# python-pkg
+# graph-tfds
 
-TODO: Update title.
+[tensorflow-datasets](https://github.com/tensorflow/datasets) implementations of various open source graph datasets.
+
+Loading logic based on [tf2-gnn](https://github.com/microsoft/tf2-gnn).
+
+## Comparison with tf2-gnn
+
+`ppi` and `qm9` datasets are based on loading logic from [tf2-gnn](https://github.com/microsoft/tf2-gnn), though the interface is not identical. To see how to recover the original implementation, see [examples/benchmark.py](examples/benchmark.py).
 
 ## Pre-commit
 
