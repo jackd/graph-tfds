@@ -1,8 +1,7 @@
 """dominant dataset."""
 
-from .dominant import Dominant, pack_ragged_components
+from .dominant import Dominant
 
 __all__ = [
     "Dominant",
-    "pack_ragged_components",
 ]

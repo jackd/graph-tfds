@@ -6,7 +6,8 @@ import scipy.sparse as sp
 import tensorflow as tf
 import tensorflow_datasets as tfds
 
-from graph_tfds.core.features.ragged import RaggedComponents, pack_ragged_components
+from graph_tfds.core.features.ragged import RaggedTensor
+from graph_tfds.core.utils.ragged import csr_to_ragged
 
 _DESCRIPTION = (
     "Single-example {name} dataset provided in "
@@ -28,14 +29,6 @@ CONFIG_NAMES = (
     "Disney",
     "Enron",
 )
-
-
-def csr_to_ragged(csr_matrix, dtype=tf.int64, row_splits_dtype=tf.int64):
-    assert csr_matrix.has_sorted_indices
-    return tf.RaggedTensor.from_row_splits(
-        tf.convert_to_tensor(csr_matrix.indices, dtype=dtype),
-        tf.convert_to_tensor(csr_matrix.indptr, dtype=row_splits_dtype),
-    )
 
 
 def load_data(path: str, name: str):
@@ -86,13 +79,9 @@ class Dominant(tfds.core.GeneratorBasedBuilder):
             features=tfds.features.FeaturesDict(
                 {
                     "graph": {
-                        "adjacency": RaggedComponents(
-                            flat_shape=(None,), dtype=tf.int64
-                        ),
+                        "adjacency": RaggedTensor(flat_shape=(None,), dtype=tf.int64),
                         "node_features": {
-                            "indices": RaggedComponents(
-                                flat_shape=(None,), dtype=tf.int64
-                            ),
+                            "indices": RaggedTensor(flat_shape=(None,), dtype=tf.int64),
                             "values": tfds.core.features.Tensor(
                                 shape=(None,), dtype=tf.float32
                             ),
@@ -137,7 +126,7 @@ if __name__ == "__main__":
         builder.as_dataset(as_supervised=True, split="train")
     )
 
-    adj = pack_ragged_components(inputs["adjacency"])
+    adj = inputs["adjacency"]
     row_ids = adj.value_rowids().numpy()
     col_ids = adj.values.numpy()
     labels = labels.numpy()

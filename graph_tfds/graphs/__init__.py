@@ -1,7 +1,9 @@
-from graph_tfds.graphs.ppi import PPI
-from graph_tfds.graphs.qm9 import QM9, Qm9
+from .cora import Cora
+from .ppi import PPI
+from .qm9 import QM9, Qm9
 
 __all__ = [
+    "Cora",
     "PPI",
     "QM9",
     "Qm9",
