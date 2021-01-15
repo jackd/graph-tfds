@@ -1,4 +1,4 @@
 """cora dataset."""
-from .cora import Cora
+from .cora import CLASS_NAMES, NUM_FEATURES, Cora
 
-__all__ = ["Cora"]
+__all__ = ["Cora", "CLASS_NAMES", "NUM_FEATURES"]

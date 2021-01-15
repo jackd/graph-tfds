@@ -49,7 +49,10 @@ class Qm9(tfds.core.GeneratorBasedBuilder):
 
     def _split_generators(self, dl_manager):
         # xyz_url = "https://ndownloader.figshare.com/files/3195389"
-        url = "https://github.com/microsoft/tf-gnn-samples/raw/master/data/qm9/{split}.jsonl.gz"
+        url = (
+            "https://github.com/microsoft/tf-gnn-samples/raw/master/data/qm9/"
+            "{split}.jsonl.gz"
+        )
         urls = dl_manager.download(
             {k: url.format(split=k) for k in ("train", "valid", "test")}
         )
@@ -87,7 +90,6 @@ QM9 = Qm9  # hack naming issues
 
 if __name__ == "__main__":
     import graph_tfds  # register checksums dir
-    import numpy as np
 
     config = None
     ppi = QM9()

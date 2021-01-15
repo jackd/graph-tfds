@@ -1,3 +1,5 @@
+import json
+import pickle as pkl
 from typing import List, Mapping, Sequence, Tuple
 
 import numpy as np
@@ -65,3 +67,33 @@ def load_content_and_cites(base_path: str, class_indices: Mapping[str, int]):
     adjacency = csr_to_ragged(adjacency)
     labels = tf.convert_to_tensor(labels, dtype=tf.int64)
     return adjacency, features, labels, node_ids
+
+
+def load_np(path):
+    with tf.io.gfile.GFile(path, "rb") as fp:
+        return np.load(fp)
+
+
+def save_np(path, arr):
+    with tf.io.gfile.GFile(path, "wb") as fp:
+        np.save(fp, arr)
+
+
+def load_json(path):
+    with tf.io.gfile.GFile(path, "rb") as fp:
+        return json.load(fp)
+
+
+def save_json(path, obj):
+    with tf.io.gfile.GFile(path, "wb") as fp:
+        json.dump(obj, fp)
+
+
+def loadtxt(path, **kwargs):
+    with tf.io.gfile.GFile(path, "rb") as fp:
+        return np.loadtxt(fp, **kwargs)
+
+
+def load_pickle(path, **kwargs):
+    with tf.io.gfile.GFile(path, "rb") as fp:
+        return pkl.load(fp, **kwargs)
