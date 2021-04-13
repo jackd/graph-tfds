@@ -6,7 +6,7 @@ import scipy.sparse as sp
 import tensorflow as tf
 import tensorflow_datasets as tfds
 
-from graph_tfds.core.features.sparse import SparseTensor
+from graph_tfds.core.features.sparse import SparseComponents, SparseTensor
 from graph_tfds.core.utils.dgl.core import DGL_URL
 from graph_tfds.core.utils.file_io import load_pickle, loadtxt
 
@@ -53,7 +53,7 @@ def load_citation_graph(name, data_dir):
     return {
         "graph": {
             "links": links,
-            "node_features": tf.SparseTensor(
+            "node_features": SparseComponents(
                 indices=np.stack(
                     (node_features.row, node_features.col), axis=-1
                 ).astype(np.int64),

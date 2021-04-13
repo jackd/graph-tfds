@@ -1,5 +1,14 @@
+from typing import NamedTuple, Tuple
+
+import numpy as np
 import tensorflow as tf
 import tensorflow_datasets as tfds
+
+
+class SparseComponents(NamedTuple):
+    indices: np.ndarray
+    values: np.ndarray
+    dense_shape: Tuple[int, ...]
 
 
 class SparseTensor(tfds.core.features.FeatureConnector):
