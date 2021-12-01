@@ -1,3 +1,4 @@
 tensorflow-datasets
 dpu_utils
 scipy
+dgl
