@@ -3,6 +3,7 @@ from collections import namedtuple
 
 import numpy as np
 import tensorflow as tf
+
 import tensorflow_datasets as tfds
 
 RaggedComponents = namedtuple("RaggedComponents", ["flat_values", "nested_row_splits"])

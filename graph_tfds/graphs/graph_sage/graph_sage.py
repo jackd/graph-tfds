@@ -7,6 +7,7 @@ import networkx as nx
 import numpy as np
 import scipy.sparse as sp
 import tensorflow as tf
+
 import tensorflow_datasets as tfds
 
 _REDDIT_DESCRIPTION = """

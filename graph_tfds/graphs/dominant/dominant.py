@@ -4,8 +4,8 @@ import numpy as np
 import scipy.io
 import scipy.sparse as sp
 import tensorflow as tf
-import tensorflow_datasets as tfds
 
+import tensorflow_datasets as tfds
 from graph_tfds.core.features.ragged import RaggedTensor
 from graph_tfds.core.utils.ragged import csr_to_ragged
 

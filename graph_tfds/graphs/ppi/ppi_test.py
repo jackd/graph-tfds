@@ -1,7 +1,6 @@
 """ppi dataset."""
 
 import tensorflow_datasets as tfds
-
 from graph_tfds.graphs.ppi import PPI
 
 

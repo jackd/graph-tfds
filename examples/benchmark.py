@@ -19,11 +19,11 @@ import zipfile
 from typing import Callable, Optional
 
 import tensorflow as tf
-import tensorflow_datasets as tfds
-import wget
 from absl import app, flags
 from dpu_utils.utils import RichPath
 
+import tensorflow_datasets as tfds
+import wget
 from accumulator_batching import RaggedAccumulator, TensorAccumulator, accumulated_batch
 from graph_tfds import graphs  # pylint:ignore=unused-import
 from tf2_gnn import data

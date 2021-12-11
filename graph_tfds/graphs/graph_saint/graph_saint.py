@@ -7,9 +7,9 @@ from typing import Dict
 import numpy as np
 import scipy.sparse as sp
 import tensorflow as tf
-import tensorflow_datasets as tfds
 
 import gdown
+import tensorflow_datasets as tfds
 
 _DESCRIPTION = """\
 Datasets used in/provided by [GraphSAINT](https://github.com/GraphSAINT/GraphSAINT)."""

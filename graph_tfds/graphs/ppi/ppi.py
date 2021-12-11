@@ -3,8 +3,8 @@ from typing import List, Tuple
 
 import numpy as np
 import tensorflow as tf
-import tensorflow_datasets as tfds
 
+import tensorflow_datasets as tfds
 from graph_tfds.core.utils.file_io import load_json, load_np
 
 NUM_FEATURES = 50

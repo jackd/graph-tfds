@@ -1,8 +1,8 @@
 import numpy as np
 import tensorflow as tf
-import tensorflow_datasets as tfds
 from dpu_utils.utils import RichPath
 
+import tensorflow_datasets as tfds
 from graph_tfds.core.features.feature_tuple import FeatureTuple
 
 CITATION = """\

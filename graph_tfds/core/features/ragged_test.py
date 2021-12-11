@@ -16,11 +16,11 @@
 
 import numpy as np
 import tensorflow as tf
-import tensorflow_datasets as tfds
 from tensorflow.python.ops.ragged import (  # pylint: disable=no-name-in-module
     ragged_tensor,
 )
 
+import tensorflow_datasets as tfds
 from graph_tfds.core.features import ragged
 
 

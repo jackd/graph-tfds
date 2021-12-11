@@ -88,11 +88,11 @@ class Asymproj(tfds.core.GeneratorBasedBuilder):
             "test_neg": np.load(
                 tf.io.gfile.GFile(path / "test.neg.txt.npy", "rb")
             ).astype(np.int64),
-            "train_pos": np.load(tf.io.gfile.GFile(path / "test.txt.npy", "rb")).astype(
-                np.int64
-            ),
+            "train_pos": np.load(
+                tf.io.gfile.GFile(path / "train.txt.npy", "rb")
+            ).astype(np.int64),
             "train_neg": np.load(
-                tf.io.gfile.GFile(path / "test.neg.txt.npy", "rb")
+                tf.io.gfile.GFile(path / "train.neg.txt.npy", "rb")
             ).astype(np.int64),
             "num_nodes": index["largest_cc_num_nodes"],
         }
