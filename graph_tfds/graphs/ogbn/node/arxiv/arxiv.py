@@ -69,6 +69,7 @@ class Arxiv(tfds.core.GeneratorBasedBuilder):
     def _split_generators(self, dl_manager: tfds.download.DownloadManager):
         """Returns SplitGenerators."""
         # TODO(arxiv): Downloads the data and defines the splits
+        raise NotImplementedError()
         path = dl_manager.download_and_extract("https://todo-data-url")
 
         # TODO(arxiv): Returns the Dict[split names, Iterator[Key, Example]]
@@ -78,9 +79,4 @@ class Arxiv(tfds.core.GeneratorBasedBuilder):
 
     def _generate_examples(self, path):
         """Yields examples."""
-        # TODO(arxiv): Yields (key, example) tuples from the dataset
-        for f in path.glob("*.jpeg"):
-            yield "key", {
-                "image": f,
-                "label": "yes",
-            }
+        raise NotImplementedError()
